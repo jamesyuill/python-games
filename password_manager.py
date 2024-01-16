@@ -28,7 +28,7 @@ def view():
         for line in f.readlines():
             data = line.rstrip() #strips of carridge return
             user, passw = data.split(' | ')
-            print("User:", user, ',| Password:', str(fer.decrypt(passw.encode())))
+            print("User:", user, ',| Password:', fer.decrypt(passw.encode()).decode())
 
 
 
@@ -37,7 +37,7 @@ def add():
     pwd = input('Password: ')
 
     with open('passwords.txt', 'a') as f:
-        f.write(name + ' | ' + str(fer.encrypt(pwd.encode())) + '\n')
+        f.write(name + ' | ' + fer.encrypt(pwd.encode()).decode() + '\n')
 
 
 
